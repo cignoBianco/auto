@@ -21,9 +21,9 @@ class CreateOptionParamsTable extends Migration
             $table->timestamps();
 
             $table->foreign('option_id')->references('id')
-                ->on('options')->onDelete('cascade');
+                ->on('options');
             $table->foreign('param_id')->references('id')
-                ->on('parameters')->onDelete('cascade');
+                ->on('parameters');
         });
     }
 

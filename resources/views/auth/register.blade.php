@@ -29,7 +29,7 @@
                             <label for="garage_id" class="col-md-4 col-form-label text-md-right">{{ __('Garage id') }}</label>
 
                             <div class="col-md-6">
-                                <input id="garage_id" type="number" class="form-control @error('garage_id') is-invalid @enderror" name="garage_id" value="{{ old('garage_id') }}">
+                                <input id="garage_id" type="number" class="form-control @error('garage_id') is-invalid @enderror" name="garage_id" value="{{ old('garage_id') }}" required>
 
                                 @error('garage_id')
                                     <span class="invalid-feedback" role="alert">

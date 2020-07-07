@@ -21,7 +21,7 @@ class CreateActionsProductsTable extends Migration
             $table->timestamps();
 
             $table->foreign('action_id')->references('id')
-                ->on('actions')->onDelete('cascade');
+                ->on('actions');
         });
     }
 
