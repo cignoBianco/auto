@@ -26,9 +26,9 @@ class CreateActionsTable extends Migration
             $table->timestamps();
 
             $table->foreign('section_id')->references('id')
-                ->on('sections');
+                ->on('sections')->onDelete('cascade');
             $table->foreign('category_id')->references('id')
-                ->on('categories');
+                ->on('categories')->onDelete('cascade');
         });
     }
 

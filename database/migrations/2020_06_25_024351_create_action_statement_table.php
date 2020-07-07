@@ -22,7 +22,7 @@ class CreateActionStatementTable extends Migration
             $table->timestamps();
 
             $table->foreign('action_id')->references('id')
-                ->on('actions');
+                ->on('actions')->onDelete('cascade');
         });
     }
 

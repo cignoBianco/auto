@@ -20,9 +20,9 @@ class CreateActionUsersTable extends Migration
             $table->timestamps();
 
             $table->foreign('action_id')->references('id')
-                ->on('actions');
+                ->on('actions')->onDelete('cascade');
             $table->foreign('user_id')->references('id')
-                ->on('users');
+                ->on('users')->onDelete('cascade');
         });
     }
 

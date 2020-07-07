@@ -20,9 +20,9 @@ class CreateAutoProductOptionsTable extends Migration
             $table->timestamps();
 
             $table->foreign('auto_product_id')->references('id')
-                ->on('auto_products');
+                ->on('auto_products')->onDelete('cascade');
             $table->foreign('option_id')->references('id')
-                ->on('options');
+                ->on('options')->onDelete('cascade');
         });
     }
 

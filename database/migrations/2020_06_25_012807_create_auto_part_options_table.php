@@ -20,9 +20,9 @@ class CreateAutoPartOptionsTable extends Migration
             $table->timestamps();
 
             $table->foreign('auto_part_id')->references('id')
-                ->on('auto_parts');
+                ->on('auto_parts')->onDelete('cascade');
             $table->foreign('option_id')->references('id')
-                ->on('options');
+                ->on('options')->onDelete('cascade');
         });
     }
 

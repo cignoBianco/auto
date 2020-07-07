@@ -17,8 +17,9 @@ class CreateAutoPartsTable extends Migration
             $table->id();
 
             $table->string('article');
+            $table->string('number');
             $table->bigInteger('number');
-            $table->bigInteger('category_id')->unsigned();
+            $table->unsignedBigInteger('category_id');
             $table->string('producer')->nullable();
             $table->string('priority')->nullable();
             $table->bigInteger('status_id')->unsigned();
@@ -39,11 +40,11 @@ class CreateAutoPartsTable extends Migration
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')
-                ->on('categories');
+                ->on('categories')->onDelete('cascade');
             $table->foreign('provider_id')->references('id')
-                ->on('providers');
+                ->on('providers')->onDelete('cascade');
             $table->foreign('status_id')->references('id')
-                ->on('statuses');
+                ->on('statuses')->onDelete('cascade');
                 
         });
     }

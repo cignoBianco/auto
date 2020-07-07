@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->boolean('is_admin')->default(0);
             $table->string('name');
-            $table->bigInteger('garage_id')->unsigned();
+            $table->bigInteger('garage_id')->unsigned()->nullable();
             $table->float('balance');
             $table->integer('orders_count')->default(0);
             $table->string('phone')->nullable();
@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->foreign('garage_id')->references('id')
-                ->on('garages');
+                ->on('garages')->onDelete('cascade');
         });
     }
 

@@ -39,9 +39,9 @@ class CreateAutoProductsTable extends Migration
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')
-                ->on('categories');
+                ->on('categories')->onDelete('cascade');
             $table->foreign('status_id')->references('id')
-                ->on('statuses');
+                ->on('statuses')->onDelete('cascade');
         });
     }
 

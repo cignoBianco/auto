@@ -20,9 +20,9 @@ class CreatePartSpecificationsTable extends Migration
             $table->timestamps();
 
             $table->foreign('specification_id')->references('id')
-                ->on('specifications');
+                ->on('specifications')->onDelete('cascade');
             $table->foreign('part_id')->references('id')
-                ->on('auto_parts');
+                ->on('auto_parts')->onDelete('cascade');
         });
     }
 

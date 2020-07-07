@@ -20,9 +20,9 @@ class CreateProductSpecificationsTable extends Migration
             $table->timestamps();
 
             $table->foreign('specification_id')->references('id')
-                ->on('specifications');
+                ->on('specifications')->onDelete('cascade');
             $table->foreign('product_id')->references('id')
-                ->on('auto_products');
+                ->on('auto_products')->onDelete('cascade');
         });
     }
 

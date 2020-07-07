@@ -31,7 +31,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
 
             $table->foreign('section_id')->references('id')
-                ->on('sections');
+                ->on('sections')->onDelete('cascade');
         });
     }
 

@@ -35,33 +35,39 @@ class AdminCategoryController extends Controller
             ->where('id', $category->section_id)->first()->name;
         }
         
-        return view('admin/category', ['categories' => $categories]);
+        return view('admin/category/category', ['categories' => $categories]);
     }
 
 
     public function createForm() {
         $sections = DB::table('sections')->get();
-        return view('admin/create_form', ['sections' => $sections]);
+        return view('admin/category/create_form', ['sections' => $sections]);
     }
 
 
     public function create(Request $request)
     {
-        
+        $t = $request->file('main_picture')->move(('uploads'), 
+            $request->main_picture.'.'.
+            $request->file('main_picture')->extension());
+
         $category = new Category();
 
         $category->name = $request->name;
         $category->specifications = $request->specifications;
         $category->section_id = $request->section_id;
         $category->priority = $request->priority;
-        $category->show = $request->show;
-        $category->main_picture = 'uploads/'.$request->main_picture;
+        $category->show = (isset($request->show) == 'on' ? '1' : '0');
+        //$category->main_picture = 'uploads/'.$request->main_picture;
+        $category->main_picture = ($request->main_picture) 
+            ? 'uploads/'.$t->getFileName() : $category->main_picture;
         $category->seo_url = $request->seo_url;
         $category->meta_title = $request->meta_title;
         $category->meta_description = $request->meta_description;
         $category->meta_keywords = $request->meta_keywords;
 
         $category->save();
+        
         
         return redirect('/admin_panel/categories');
     }
@@ -73,14 +79,18 @@ class AdminCategoryController extends Controller
         $category->section = DB::table('sections')
             ->where('id', $category->section_id)->first()->name;
         
-        return view('admin/update_category_form', ['category' => $category, 
+        return view('admin/category/update_category_form', ['category' => $category, 
         'sections' => $sections]);
     }
 
 
     public function update(Request $request, $id)
     {
-        if (null !== ($request->file('main_picture'))) $t = $request->file('main_picture')->move(('uploads'), $request->main_picture.'.png');
+        if (null !== ($request->file('main_picture'))) {
+            $t = $request->file('main_picture')->move(('uploads'), 
+                $request->main_picture.'.'.
+                $request->file('main_picture')->extension());
+        }
 
         $category = Category::find($id);
 
@@ -88,7 +98,7 @@ class AdminCategoryController extends Controller
         $category->specifications = $request->specifications;
         $category->section_id = $request->section_id;
         $category->priority = $request->priority;
-        $category->show = $request->show;
+        $category->show = (isset($request->show) == 'on' ? '1' : '0');
         $category->main_picture = ($request->main_picture) 
             ? 'uploads/'.$t->getFileName() : $category->main_picture;
         $category->seo_url = $request->seo_url;
