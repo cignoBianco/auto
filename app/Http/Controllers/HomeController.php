@@ -25,4 +25,46 @@ class HomeController extends Controller
     {
         return view('site.index');
     }
+
+
+    public function ShowParts() {
+
+        return view('site.parts');
+    }
+
+    public function ShowTable() {
+
+        return view('site.stol-zakazov');
+    }
+
+    public function ShowCatalogOem() {
+
+        return view('site.catalog');
+    }
+
+    public function ShowCatalog() {
+
+        return view('site.main-catalog');
+    }
+
+    public function GetConsierge() {
+        
+        return  view('site.consierge');
+    }
+
+    public function GetConsiergeParthner() {
+        
+        return  view('site.consierge-parthner');
+    }
+
+    public function GetConsiergeAbout() {
+        
+        return  view('site.consierge-about');
+    }
+
+    public function GetConsiergeFaq() {
+        
+        return  view('site.consierge-faq');
+    }
+
 }

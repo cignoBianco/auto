@@ -65,11 +65,21 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
 
 Route::get('/welcome', function () {return view('welcome');});
 
+Route::get('/consierge/parthner', 'HomeController@GetConsiergeParthner');
+Route::get('/consierge/about', 'HomeController@GetConsiergeAbout');
+Route::get('/consierge/faq', 'HomeController@GetConsiergeFaq');
+Route::get('/consierge', 'HomeController@GetConsierge')->name('consierge');
+
+Route::get('/catalog', 'HomeController@ShowCatalog')->name('catalog');
+Route::get('/catalog/oem', 'HomeController@ShowCatalogOem')->name('catalog/oem');
+Route::get('/stol-zakazov', 'HomeController@ShowTable')->name('stol-zakazov');
+Route::get('/poisk-po-nomeru', 'HomeController@ShowParts')->name('poisk-po-nomeru');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 
 Auth::routes();
-Route::get('/', function () {
-    return view('site');
-});
+/*Route::get('/', function () {
+    return view('home'); 
+});*/
 
-Route::get('/home', 'HomeController@index')->name('home');
