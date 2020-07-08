@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -1245,7 +1245,7 @@ pre code {
 
   .col-md-8 {
     flex: 0 0 66.6666666667%;
-    max-width: 100% !important;
+    max-width: 66.6666666667%;
   }
 
   .col-md-9 {
@@ -2152,7 +2152,7 @@ pre code {
 
 .form-control {
   display: block;
-  /*width: 100%;*/
+  width: 100%;
   height: calc(1.6em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 0.9rem;
@@ -4128,7 +4128,7 @@ input[type=button].btn-block {
 
 .custom-select {
   display: inline-block;
-  /*width: 100%;*/
+  width: 100%;
   height: calc(1.6em + 0.75rem + 2px);
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   font-size: 0.9rem;
@@ -10860,10 +10860,6 @@ a.text-dark:focus {
     display: table-header-group;
   }
 
-  tr {
-    text-align: center;
-  }
-
   tr,
   img {
     page-break-inside: avoid;
@@ -10932,6 +10928,3 @@ a.text-dark:focus {
   }
 }
 
-tr {
-  text-align: center;
-}

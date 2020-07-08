@@ -21,7 +21,7 @@ class CreateOptionsTable extends Migration
             $table->timestamps();
 
             $table->foreign('option_type_id')->references('id')
-                ->on('option_types')->onDelete('cascade');
+                ->on('option_types');
         });
     }
 

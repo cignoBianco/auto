@@ -1,9 +1,0 @@
-INSERT INTO `statuses` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (NULL, 'status 1', 'Desc 1', NULL, NULL), (NULL, 'Stat 2', 'Desc 2', NULL, NULL)
-
-INSERT INTO `specifications` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (NULL, 'Spec 1', 'Desc 1', NULL, NULL), (NULL, 'Spec 2', 'Desc 2', NULL, NULL);
-
-INSERT INTO `sections` (`id`, `name`, `created_at`, `updated_at`) VALUES (NULL, 'Sec 1', NULL, NULL), (NULL, 'Sec 2', NULL, NULL);
-
-
-
-

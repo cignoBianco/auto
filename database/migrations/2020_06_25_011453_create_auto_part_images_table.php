@@ -20,7 +20,7 @@ class CreateAutoPartImagesTable extends Migration
             $table->timestamps();
 
             $table->foreign('auto_part_id')->references('id')
-                ->on('auto_parts')->onDelete('cascade');
+                ->on('auto_parts');
         });
     }
 

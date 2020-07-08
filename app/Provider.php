@@ -16,8 +16,7 @@ class Provider extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 
-        'description', 'assessment',
+        'name', 'email', 'description', 'assessment',
         'orders_completed_at_time_amount',
         'orders_not_completed_at_time_amount',
         'orders_not_completed_amount',
